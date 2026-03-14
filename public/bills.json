@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "bill_type": "electricity",
+    "icon": "https://img.icons8.com/color/96/electricity.png",
+    "organization": "DESCO",
+    "amount": 890,
+    "due-date": "2026-03-20T06:57:58.110Z"
+  },
+  {
+    "id": 2,
+    "bill_type": "gas",
+    "icon": "https://img.icons8.com/color/96/gas.png",
+    "organization": "Titas Gas",
+    "amount": 720,
+    "due-date": "2026-03-25T06:57:58.110Z"
+  },
+  {
+    "id": 3,
+    "bill_type": "internet",
+    "icon": "https://img.icons8.com/color/96/wifi.png",
+    "organization": "Link3",
+    "amount": 950,
+    "due-date": "2026-03-18T06:57:58.110Z"
+  },
+  {
+    "id": 4,
+    "bill_type": "water",
+    "icon": "https://img.icons8.com/color/96/water.png",
+    "organization": "WASA",
+    "amount": 480,
+    "due-date": "2026-03-27T06:57:58.110Z"
+  },
+  {
+    "id": 5,
+    "bill_type": "credit card bill",
+    "icon": "https://img.icons8.com/color/96/bank-card-back-side.png",
+    "organization": "BRAC Bank",
+    "amount": 999,
+    "due-date": "2026-03-30T06:57:58.110Z"
+  },
+  {
+    "id": 6,
+    "bill_type": "tuition",
+    "icon": "https://img.icons8.com/color/96/school.png",
+    "organization": "Feni Government College",
+    "amount": 650,
+    "due-date": "2026-03-22T06:57:58.110Z"
+  },
+  {
+    "id": 7,
+    "bill_type": "electricity",
+    "icon": "https://img.icons8.com/color/96/electricity.png",
+    "organization": "NESCO",
+    "amount": 730,
+    "due-date": "2026-03-24T06:57:58.110Z"
+  },
+  {
+    "id": 8,
+    "bill_type": "internet",
+    "icon": "https://img.icons8.com/color/96/wifi.png",
+    "organization": "Carnival Internet",
+    "amount": 900,
+    "due-date": "2026-03-21T06:57:58.110Z"
+  },
+  {
+    "id": 9,
+    "bill_type": "water",
+    "icon": "https://img.icons8.com/color/96/water.png",
+    "organization": "Chittagong WASA",
+    "amount": 540,
+    "due-date": "2026-03-26T06:57:58.110Z"
+  },
+  {
+    "id": 10,
+    "bill_type": "gas",
+    "icon": "https://img.icons8.com/color/96/gas.png",
+    "organization": "PDB Gas",
+    "amount": 810,
+    "due-date": "2026-03-29T06:57:58.110Z"
+  }
+]

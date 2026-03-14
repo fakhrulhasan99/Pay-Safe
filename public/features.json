@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "title": "Pay Your Bills",
+    "description": "Pay electricity, water, gas, and other utility bills quickly and securely from your account.",
+    "image": "/src/assets/pay-bills.png",
+    "buttonText": "Pay Bills"
+  },
+  {
+    "id": 2,
+    "title": "Fast Pay",
+    "description": "Send money instantly to friends, family, or businesses with just a few taps.",
+    "image": "/src/assets/fast-pay.png",
+    "buttonText": "Send Now"
+  },
+  {
+    "id": 3,
+    "title": "Easy Transactions",
+    "description": "Transfer money between accounts smoothly with a simple and secure process.",
+    "image": "/src/assets/easy-transaction.png",
+    "buttonText": "Transfer"
+  },
+  {
+    "id": 4,
+    "title": "Internet Banking",
+    "description": "Access all your banking services online anytime, anywhere with full security.",
+    "image": "/src/assets/internet-banking.png",
+    "buttonText": "Explore"
+  },
+  {
+    "id": 5,
+    "title": "Add Money",
+    "description": "Top up your account instantly using cards, mobile banking, or other payment methods.",
+    "image": "/src/assets/add-money.png",
+    "buttonText": "Add Funds"
+  },
+  {
+    "id": 6,
+    "title": "Other Features",
+    "description": "Discover more powerful banking tools including savings goals, analytics, and card management.",
+    "image": "/src/assets/other-features.png",
+    "buttonText": "See More"
+  }
+]

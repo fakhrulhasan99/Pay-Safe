@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "title": "Electricity Bill Cashback",
+      "description": "Get 5% cashback when paying electricity bills.",
+      "valid_till": "2026-04-30",
+      "banner": "https://img.icons8.com/color/96/electricity.png"
+    },
+    {
+      "id": 2,
+      "title": "Internet Bill Offer",
+      "description": "10% discount on internet bill payments.",
+      "valid_till": "2026-05-10",
+      "banner": "https://img.icons8.com/color/96/wifi.png"
+    },
+    {
+      "id": 3,
+      "title": "Mobile Recharge Bonus",
+      "description": "Recharge mobile and get 20 taka bonus.",
+      "valid_till": "2026-05-05",
+      "banner": "https://img.icons8.com/color/96/phone.png"
+    }
+  ]
