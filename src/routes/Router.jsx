@@ -5,6 +5,8 @@ import App from "../App";
 import Layout from "../layout/Layout";
 import Bills from "../pages/Bills";
 import Profile from "../pages/Profile";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
 
 export const router = createBrowserRouter([
     {
@@ -29,18 +31,33 @@ export const router = createBrowserRouter([
             {
                 path: "/bills",
                 Component: Bills,
-                loader: () => fetch("bills.json"),
+                loader: async () => {
+                    const res = await fetch("/bills.json");
+                    return res.json();
+                }
+            },
+            {
+                path: "/bills/:category",
+                Component: Bills,
+                loader: async () => {
+                    const res = await fetch("/bills.json");
+                    return res.json();
+                }
             },
             {
                 path: "/profile",
                 Component: Profile,
+            },
+            {
+                path: "/login",
+                Component: Login,
+            },
+            {
+                path: "/register",
+                Component: Register,
             }
         ]
     },
-    // {
-    //     path: "/auth",
-    //     Component: Navbar,
-    // },
     {
         path: "/*",
         element: <h1>error404</h1>

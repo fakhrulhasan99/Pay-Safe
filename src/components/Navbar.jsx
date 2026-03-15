@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
 
+    const {user} = useContext(AuthContext);
+    console.log(user)
+    
     const links = <>
-        <NavLink to={"/"}>Home</NavLink>
-        <NavLink to={"/bills"}>Bills</NavLink>
-        <NavLink to={"/profile"}>Profile</NavLink>
+        <li><NavLink to={"/"}>Home</NavLink></li>
+        <li>
+            <details>
+                <summary><NavLink className={"pr-2"} to={"/bills"}>Bills</NavLink></summary>
+                <ul className="p-2 bg-base-100 w-40 z-1">
+                    <li><NavLink to="/bills/electricity">Electricity</NavLink></li>
+                    <li><NavLink to="/bills/gas">Gas</NavLink></li>
+                    <li><NavLink to="/bills/internet">Internet</NavLink></li>
+                    <li><NavLink to="/bills/water">Water</NavLink></li>
+                    <li><NavLink to="/bills/tuition">Tuition</NavLink></li>
+                    <li><NavLink to="/bills/credit card bill">Credit card</NavLink></li>
+                </ul>
+            </details>
+        </li>
+        <li><NavLink to={"/profile"}>Profile</NavLink></li>
     </>
+
     return (
         <div className="navbar bg-base-100 max-w-7xl mx-auto px-4">
             <div className="navbar-start">
@@ -30,7 +47,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end gap-4">
                 {/* <Link className="btn btn-success">Register</Link> */}
-                <Link className="btn btn-success">Login</Link>
+                <Link to={"/login"} className="btn btn-success">Login</Link>
             </div>
         </div>
     );

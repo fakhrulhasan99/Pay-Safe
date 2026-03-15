@@ -1,13 +1,31 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { useLoaderData, useNavigation, useParams } from 'react-router';
 
 const Bills = () => {
 
+    const navigation = useNavigation();
     const bills = useLoaderData();
+    const { category } = useParams();
+
+    if (navigation.state === "loading") {
+        return (
+            <div className="flex justify-center items-center py-20">
+                <span className="loading loading-spinner loading-lg"></span>
+            </div>
+        )
+    }
+
+    const filteredBills = category
+        ? bills.filter(bill => bill.bill_type === category)
+        : bills;
+    // console.log(bills)
 
     return (
         <div className="max-w-2xl mx-auto grid gap-6 pb-6">
-            {bills.map((bill) => (
+            <h1 className="text-3xl font-bold mb-6 capitalize">
+                {category ? `${category} Bills` : "All Bills"}
+            </h1>
+            {filteredBills.map((bill) => (
                 <div key={bill.id} className="card bg-base-200 shadow-md p-4 flex flex-row items-center justify-between">
 
                     <div className="flex items-center gap-4">
