@@ -15,10 +15,12 @@ const Register = () => {
         const password = form.password.value;
 
         createUser(email, password)
-        .then(result => console.log(result))
-        .catch(error => console.log(error));
-        
-        setUser({email, password});
+            .then(result => console.log(result),
+                alert("you've signed in successfully")
+            )
+            .catch(error => console.log(error));
+
+        setUser({ email, password });
         console.log(name, photoUrl, email, password)
     }
 

@@ -13,7 +13,11 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        userLogin(email, password);
+        userLogin(email, password)
+            .then(
+                () => {alert("you've logged in successfully")}
+            )
+            .catch(error => console.log(error));
     }
 
     return (

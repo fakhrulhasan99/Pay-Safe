@@ -13,10 +13,10 @@ const AuthProvider = ({ children }) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
     const userLogin = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
+        return signInWithEmailAndPassword(auth, email, password)
     }
     const userLogout = () => {
-        signOut(auth);
+        return signOut(auth);
     }
 
     useEffect(() => {

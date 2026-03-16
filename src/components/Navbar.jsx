@@ -5,6 +5,16 @@ import { AuthContext } from '../provider/AuthProvider';
 const Navbar = () => {
 
     const { user, userLogout } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        userLogout()
+            .then(() => {
+                alert("you've logged out successfully")
+            })
+            .catch((error) => {
+                console.log(error)
+            });
+    };
     // console.log(user)
 
     const links = <>
@@ -49,7 +59,7 @@ const Navbar = () => {
                 {/* <Link className="btn btn-success">Register</Link> */}
                 <div>{user && user.email}</div>
                 {user ?
-                    <button onClick={userLogout} className="btn btn-success">Logout</button>
+                    <button onClick={handleLogout} className="btn btn-success">Logout</button>
                     :
                     <Link to={"/login"} className="btn btn-success">Login</Link>
                 }
