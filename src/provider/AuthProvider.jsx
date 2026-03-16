@@ -19,10 +19,10 @@ const AuthProvider = ({ children }) => {
         signOut(auth);
     }
 
-    // useEffect(() => {
-    //     onAuthStateChanged(auth, (currentUser) => setUser(currentUser));
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => setUser(currentUser));
         
-    // }, []);
+    }, []);
 
     const authData = {
         user,
