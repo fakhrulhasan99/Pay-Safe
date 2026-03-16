@@ -6,15 +6,15 @@ const Login = () => {
 
     const { userLogin } = useContext(AuthContext);
 
-    // const handleLogin = (e) => {
-    //     e.preventDefault();
+    const handleLogin = (e) => {
+        e.preventDefault();
 
-    //     const form = e.target;
-    //     const email = form.email.value;
-    //     const password = form.password.value;
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
 
-    //     userLogin(email, password);
-    // }
+        userLogin(email, password);
+    }
 
     return (
         <div className='flex justify-center py-20'>
