@@ -7,6 +7,7 @@ import Bills from "../pages/Bills";
 import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import BillDetails from "../pages/BillDetails";
 
 export const router = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ export const router = createBrowserRouter([
                     const res = await fetch("/bills.json");
                     return res.json();
                 }
+            },
+            {
+                path: "/bill-details",
+                Component: BillDetails,
             },
             {
                 path: "/profile",

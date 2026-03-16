@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData, useNavigation, useParams } from 'react-router';
+import { Link, useLoaderData, useNavigation, useParams } from 'react-router';
 
 const Bills = () => {
 
@@ -42,7 +42,13 @@ const Bills = () => {
 
                     <div className="text-right">
                         <p className="font-semibold">৳{bill.amount}</p>
-                        <button className="btn btn-primary btn-sm mt-2">Pay</button>
+                        <Link
+                            to={"/bill-details"}
+                            state={{ bill }}
+                            className="btn btn-primary btn-sm mt-2"
+                        >
+                            Pay
+                        </Link>
                     </div>
 
                 </div>
