@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Register = () => {
-    
-    const {setUser, createUser} = useContext(AuthContext);
+
+    const { setUser, createUser } = useContext(AuthContext);
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -14,8 +14,11 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
-        createUser(email, password);
-        setUser(email, password);
+        createUser(email, password)
+        .then(result => console.log(result))
+        .catch(error => console.log(error));
+        
+        setUser({email, password});
         console.log(name, photoUrl, email, password)
     }
 
@@ -25,16 +28,16 @@ const Register = () => {
                 <legend className="fieldset-legend text-2xl">Register</legend>
 
                 <label className="label">Name</label>
-                <input name="name" type="text" className="input" placeholder="Enter your name" />
+                <input name="name" type="text" className="input" placeholder="Enter your name" required />
 
                 <label className="label">Photo URL</label>
-                <input name="photoUrl" type="text" className="input" placeholder="Enter your photo url" />
+                <input name="photoUrl" type="text" className="input" placeholder="Enter your photo url" required />
 
                 <label className="label">Email</label>
-                <input name="email" type="email" className="input" placeholder="Enter your email address" />
+                <input name="email" type="email" className="input" placeholder="Enter your email address" required />
 
                 <label className="label">Password</label>
-                <input name="password" type="password" className="input" placeholder="Set a password" />
+                <input name="password" type="password" className="input" placeholder="Set a password" required />
 
                 <p className='pt-4'>Already have an Account? <Link to={"/login"} className='text-blue-600 pl-2'>Please Login</Link></p>
 

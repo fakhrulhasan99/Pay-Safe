@@ -4,9 +4,9 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
 
-    const {user} = useContext(AuthContext);
-    console.log(user)
-    
+    const { user, userLogout } = useContext(AuthContext);
+    // console.log(user)
+
     const links = <>
         <li><NavLink to={"/"}>Home</NavLink></li>
         <li>
@@ -47,7 +47,13 @@ const Navbar = () => {
             </div>
             <div className="navbar-end gap-4">
                 {/* <Link className="btn btn-success">Register</Link> */}
-                <Link to={"/login"} className="btn btn-success">Login</Link>
+                <div>{user && user.email}</div>
+                {user ?
+                    <button onClick={userLogout} className="btn btn-success">Logout</button>
+                    :
+                    <Link to={"/login"} className="btn btn-success">Login</Link>
+                }
+
             </div>
         </div>
     );
