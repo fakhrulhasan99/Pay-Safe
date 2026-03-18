@@ -8,6 +8,7 @@ import Profile from "../pages/Profile";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import BillDetails from "../pages/BillDetails";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -31,7 +32,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/bills",
-                Component: Bills,
+                element:
+                    <PrivateRoute>
+                        <Bills />
+                    </PrivateRoute>,
                 loader: async () => {
                     const res = await fetch("/bills.json");
                     return res.json();
@@ -39,7 +43,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/bills/:category",
-                Component: Bills,
+                element:
+                    <PrivateRoute>
+                        <Bills />
+                    </PrivateRoute>,
                 loader: async () => {
                     const res = await fetch("/bills.json");
                     return res.json();
@@ -47,7 +54,10 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/bill-details",
-                Component: BillDetails,
+                element:
+                    <PrivateRoute>
+                        <BillDetails />
+                    </PrivateRoute>
             },
             {
                 path: "/profile",
