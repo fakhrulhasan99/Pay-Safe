@@ -7,7 +7,7 @@ const Login = () => {
     const { userLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
+    // console.log(location);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -31,10 +31,10 @@ const Login = () => {
                 <legend className="fieldset-legend text-2xl">Login</legend>
 
                 <label className="label">Email</label>
-                <input name='email' type="email" className="input" placeholder="Email" />
+                <input name='email' type="email" className="input" placeholder="Email" required />
 
                 <label className="label">Password</label>
-                <input name='password' type="password" className="input" placeholder="Password" />
+                <input name='password' type="password" className="input" placeholder="Password" required />
 
                 <p className='pt-4'>Forgot Password? <a className='text-blue-600 pl-2 hover:cursor-pointer'>Click Here</a></p>
 

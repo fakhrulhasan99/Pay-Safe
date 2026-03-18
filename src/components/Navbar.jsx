@@ -56,16 +56,31 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end gap-4">
-                {/* <Link className="btn btn-success">Register</Link> */}
-                <div>{user && user.email}</div>
                 {user ?
-                    <button onClick={handleLogout} className="btn btn-success">Logout</button>
-                    :
+                    <div className="dropdown dropdown-end">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                            <div className="w-12 rounded-full">
+                                <img className='w-12 rounded-full' src={user.photoURL} />
+                            </div>
+                        </div>
+                        <ul
+                            tabIndex="-1"
+                            className="menu gap-4 menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                            <li>
+                                <Link to={"/profile"} className='btn btn-success'>Profile</Link>
+                            </li>
+                            <li>
+                                <a className='btn btn-info'>Settings</a>
+                            </li>
+                            <li>
+                                <button onClick={handleLogout} className="btn btn-error">Logout</button>
+                            </li>
+                        </ul>
+                    </div> :
                     <Link to={"/login"} className="btn btn-success">Login</Link>
                 }
-
             </div>
-        </div>
+        </div >
     );
 };
 
