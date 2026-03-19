@@ -4,7 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
 
-    const { user, userLogout } = useContext(AuthContext);
+    const { user, userLogout, balance } = useContext(AuthContext);
 
     const handleLogout = () => {
         userLogout()
@@ -70,7 +70,7 @@ const Navbar = () => {
                                 <Link to={"/profile"} className='btn btn-success'>Profile</Link>
                             </li>
                             <li>
-                                <a className='btn btn-info'>Settings</a>
+                                <a className='btn btn-info text-lg font-bold'>Balance: ৳{balance}</a>
                             </li>
                             <li>
                                 <button onClick={handleLogout} className="btn btn-error">Logout</button>

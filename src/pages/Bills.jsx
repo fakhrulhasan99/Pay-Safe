@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLoaderData, useNavigation, useParams } from 'react-router';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Bills = () => {
 
     const navigation = useNavigation();
     const bills = useLoaderData();
     const { category } = useParams();
+    const { paidBills } = useContext(AuthContext);
 
     if (navigation.state === "loading") {
         return (
@@ -45,9 +47,9 @@ const Bills = () => {
                         <Link
                             to={"/bill-details"}
                             state={{ bill }}
-                            className="btn btn-primary btn-sm mt-2"
+                            className={`mt-2 btn btn-sm ${paidBills.includes(bill.id) ? "btn-success" : "btn-primary"}`}
                         >
-                            Pay
+                            {paidBills.includes(bill.id) ? "Paid" : "Pay"}
                         </Link>
                     </div>
 

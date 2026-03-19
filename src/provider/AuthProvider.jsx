@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateEmail, updateProfile } from "firebase/auth";
 import app from '../firebase.config';
+import { toast } from 'react-toastify';
 // eslint-disable-next-line react-refresh/only-export-components
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -29,10 +30,37 @@ const AuthProvider = ({ children }) => {
         return updateEmail(auth.currentUser, updatedEmail)
     }
 
+    // 💰 initial balance
+    const [balance, setBalance] = useState(10000);
+
+    // ✅ store paid bill ids
+    const [paidBills, setPaidBills] = useState([]);
+
+    const payBill = (bill) => {
+
+        // already paid
+        if (paidBills.includes(bill.id)) {
+            toast.error("This bill is already paid ❌");
+            return;
+        }
+
+        // insufficient balance
+        if (balance < bill.amount) {
+            toast.error("Insufficient balance ❌");
+            return;
+        }
+
+        // success
+        setBalance(prev => prev - bill.amount);
+        setPaidBills(prev => [...prev, bill.id]);
+
+        toast.success(`Paid ৳${bill.amount} successfully 💸`);
+    };
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
-            setLoading(false); 
+            setLoading(false);
         });
 
         return () => unsubscribe();
@@ -47,6 +75,10 @@ const AuthProvider = ({ children }) => {
         userProfile,
         userEmail,
         loading,
+        balance,
+        setBalance,
+        paidBills,
+        payBill
         // setLoading,
     }
 
