@@ -40,7 +40,7 @@ const AuthProvider = ({ children }) => {
 
         // already paid
         if (paidBills.includes(bill.id)) {
-            toast.error("This bill is already paid ❌");
+            toast.info("This bill is already paid ❌");
             return;
         }
 

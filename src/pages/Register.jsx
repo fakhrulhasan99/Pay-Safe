@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Register = () => {
 
@@ -18,7 +19,7 @@ const Register = () => {
         createUser(email, password)
             .then((result) => {
                 const user = result.user;
-                alert("you've signed in successfully"),
+                toast.success("You've signed in successfully"),
                     userProfile({ displayName: name, photoURL: photoUrl })
                         .then(() => {
                             setUser({ ...user, displayName: name, photoURL: photoUrl });
