@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
 
-    const { setUser, createUser, userProfile } = useContext(AuthContext);
+    const { setUser, createUser, userProfile, signInWithGoogle } = useContext(AuthContext);
     // console.log(userProfile)
 
     const handleRegister = (e) => {
@@ -36,7 +36,7 @@ const Register = () => {
     }
 
     return (
-        <div className='flex justify-center py-20'>
+        <div className='flex flex-col max-w-md items-center mx-auto justify-center py-20'>
             <form onSubmit={handleRegister} className="fieldset bg-base-200 border-base-300 rounded-box w-sm border p-4">
                 <legend className="fieldset-legend text-2xl">Register</legend>
 
@@ -56,6 +56,7 @@ const Register = () => {
 
                 <button className="btn btn-neutral mt-4">Register</button>
             </form>
+                <button onClick={() => {signInWithGoogle()}} className="btn btn-soft btn-info mt-4">Register with Google</button>
         </div>
     );
 };
