@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCk1VArrY2_SVB8sR6f7b2ms9h4jtdhlaE",
-  authDomain: "paysafe-authentication.firebaseapp.com",
-  projectId: "paysafe-authentication",
-  storageBucket: "paysafe-authentication.firebasestorage.app",
-  messagingSenderId: "355783777685",
-  appId: "1:355783777685:web:8be6f0a9602e8908db2a9c"
+  apiKey:import.meta.env.VITE_apiKey,
+  authDomain:import.meta.env.VITE_authDomain,
+  projectId:import.meta.env.VITE_projectId,
+  storageBucket:import.meta.env.VITE_storageBucket,
+  messagingSenderId:import.meta.env.VITE_messagingSenderId,
+  appId:import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

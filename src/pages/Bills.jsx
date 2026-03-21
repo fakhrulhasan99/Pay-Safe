@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, useLoaderData, useNavigation, useParams } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
+import Loading from '../components/Loading';
 
 const Bills = () => {
 
@@ -11,9 +12,7 @@ const Bills = () => {
 
     if (navigation.state === "loading") {
         return (
-            <div className="flex justify-center items-center py-20">
-                <span className="loading loading-spinner loading-lg"></span>
-            </div>
+            <Loading/>
         )
     }
 

@@ -9,6 +9,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import BillDetails from "../pages/BillDetails";
 import PrivateRoute from "./PrivateRoute";
+import Loading from "../components/Loading";
 
 export const router = createBrowserRouter([
     {
@@ -29,6 +30,7 @@ export const router = createBrowserRouter([
 
                     return { features, offers };
                 },
+                hydrateFallbackElement: <Loading/>
             },
             {
                 path: "/bills",
@@ -39,7 +41,8 @@ export const router = createBrowserRouter([
                 loader: async () => {
                     const res = await fetch("/bills.json");
                     return res.json();
-                }
+                },
+                hydrateFallbackElement: <Loading/>
             },
             {
                 path: "/bills/:category",
@@ -50,7 +53,8 @@ export const router = createBrowserRouter([
                 loader: async () => {
                     const res = await fetch("/bills.json");
                     return res.json();
-                }
+                },
+                hydrateFallbackElement: <Loading/>
             },
             {
                 path: "/bill-details",
