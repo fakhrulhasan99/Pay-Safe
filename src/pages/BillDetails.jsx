@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 
 const BillDetails = () => {
 
     const location = useLocation();
+    const navigate = useNavigate();
     const { bill } = location.state;
     const { payBill, paidBills } = useContext(AuthContext);
 
@@ -17,6 +18,16 @@ const BillDetails = () => {
         month: "long",
         year: "numeric",
     });
+
+    const handlePay = (bill) => {
+        const success = payBill(bill);
+
+        if (success) {
+            setTimeout(() => {
+                navigate("/bills");
+            }, 1500); // ⏳ wait for toast
+        }
+    };
 
     return (
         <div className="max-w-3xl w-11/12 mx-auto my-20 p-6 bg-base-200 shadow-lg rounded-lg flex flex-col md:flex-row items-center gap-6">
@@ -31,7 +42,7 @@ const BillDetails = () => {
                 <p className="text-gray-400 font-semibold">Amount: {bill.amount} BDT</p>
                 <p className="text-gray-500">Due Date: {dueDate}</p>
                 <button
-                    onClick={() => payBill(bill)}
+                    onClick={() => handlePay(bill)}
                     // disabled={paidBills.includes(bill.id)}
                     className={`btn mt-4 ${paidBills.includes(bill.id) ? "btn-success" : "btn-primary"
                         }`}

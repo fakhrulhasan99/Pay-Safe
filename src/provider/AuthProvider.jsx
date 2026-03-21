@@ -11,7 +11,7 @@ const AuthProvider = ({ children }) => {
     const googleProvider = new GoogleAuthProvider();
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    console.log(loading, user)
+    // console.log(loading, user)
 
     const signInWithGoogle = () => {
         return signInWithPopup(auth, googleProvider);
@@ -34,31 +34,28 @@ const AuthProvider = ({ children }) => {
         return updateEmail(auth.currentUser, updatedEmail)
     }
 
-    // 💰 initial balance
     const [balance, setBalance] = useState(10000);
 
-    // ✅ store paid bill ids
     const [paidBills, setPaidBills] = useState([]);
 
     const payBill = (bill) => {
 
-        // already paid
         if (paidBills.includes(bill.id)) {
             toast.info("This bill is already paid ❌");
             return;
         }
 
-        // insufficient balance
         if (balance < bill.amount) {
             toast.error("Insufficient balance ❌");
             return;
         }
 
-        // success
         setBalance(prev => prev - bill.amount);
         setPaidBills(prev => [...prev, bill.id]);
 
         toast.success(`Paid ৳${bill.amount} successfully 💸`);
+
+        return true;
     };
 
     useEffect(() => {
@@ -84,7 +81,6 @@ const AuthProvider = ({ children }) => {
         setBalance,
         paidBills,
         payBill
-        // setLoading,
     }
 
     return (

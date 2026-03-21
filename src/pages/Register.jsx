@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Register = () => {
 
     const { setUser, createUser, userProfile, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
     // console.log(userProfile)
 
     const handleRegister = (e) => {
@@ -20,19 +21,21 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 toast.success("You've signed in successfully"),
-                    userProfile({ displayName: name, photoURL: photoUrl })
-                        .then(() => {
-                            setUser({ ...user, displayName: name, photoURL: photoUrl });
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                            setUser(user);
-                        })
+                    navigate(`${"/"}`),
+                userProfile({ displayName: name, photoURL: photoUrl })
+                    .then(() => {
+                        setUser({ ...user, displayName: name, photoURL: photoUrl });
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        setUser(user);
+                    })
             })
-            .catch(error => console.log(error));
+            .catch(() => {
+                toast.error("Registration failed !! Please try again.");
+            });
 
-        // setUser({ email, password });
-        console.log(name, photoUrl, email, password)
+        // console.log(name, photoUrl, email, password)
     }
 
     return (
@@ -56,7 +59,7 @@ const Register = () => {
 
                 <button className="btn btn-neutral mt-4">Register</button>
             </form>
-                <button onClick={() => {signInWithGoogle()}} className="btn btn-soft btn-info mt-4">Register with Google</button>
+            <button onClick={() => { signInWithGoogle() }} className="btn btn-soft btn-info mt-4">Register with Google</button>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { toast } from 'react-toastify';
 
@@ -8,7 +8,7 @@ const Login = () => {
     const { userLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    // console.log(location);
+    console.log(location);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -23,7 +23,9 @@ const Login = () => {
                     navigate(`${location.state ? location.state : "/"}`)
             }
             )
-            .catch(error => console.log(error));
+            .catch(() => {
+                toast.error("Login failed !! Please try again.")
+            });
     }
 
     return (
@@ -41,7 +43,8 @@ const Login = () => {
 
                 <p>Don't have an Account? <Link
                     to={"/register"}
-                    className='text-blue-600 pl-2'>Please Register</Link></p>
+                    className='text-blue-600 pl-2'>Please Register</Link>
+                </p>
 
                 <button className="btn btn-neutral mt-4">Login</button>
             </form>
