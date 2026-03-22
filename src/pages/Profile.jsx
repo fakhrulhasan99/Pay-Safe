@@ -1,7 +1,10 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Profile = () => {
+    useEffect(() => {
+        document.title = "Profile | Pay Safe";
+    }, []);
     const { user, setUser, userProfile, userEmail } = useContext(AuthContext);
     const modalRef = useRef();
     const [name, setName] = useState(user?.displayName || "");
@@ -87,7 +90,7 @@ const Profile = () => {
             </div>
 
             {/* Modal */}
-            <input type="checkbox" id="update-modal" className="modal-toggle" ref={modalRef}/>
+            <input type="checkbox" id="update-modal" className="modal-toggle" ref={modalRef} />
 
             <div className="modal">
                 <div className="modal-box">

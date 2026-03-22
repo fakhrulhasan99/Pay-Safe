@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-
+    useEffect(() => {
+        document.title = "Login | Pay Safe";
+    }, []);
     const { userLogin } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();

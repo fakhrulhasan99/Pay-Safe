@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, useLoaderData, useNavigation, useParams } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 import Loading from '../components/Loading';
 
 const Bills = () => {
-
+    useEffect(() => {
+        document.title = "Bills | Pay Safe";
+    }, []);
     const navigation = useNavigation();
     const bills = useLoaderData();
     const { category } = useParams();
@@ -12,7 +14,7 @@ const Bills = () => {
 
     if (navigation.state === "loading") {
         return (
-            <Loading/>
+            <Loading />
         )
     }
 
